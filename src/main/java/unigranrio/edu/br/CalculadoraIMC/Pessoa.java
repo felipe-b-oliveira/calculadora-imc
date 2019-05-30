@@ -16,109 +16,470 @@ public class Pessoa {
 		this.gravida = gravida;
 	}
 
-	public double calculaImc(double peso, double altura) {
-		double imc = this.peso / (Math.pow(this.altura, 2));
-		return imc;
-	}
+	public String classificaImcGeral(double imc) {
 
-	/*public double calculaPercentilMeninos(double imc) {
+		if (this.peso > 0 && this.altura > 0) {
 
-		double percentil;
+			if (this.idade < 20 && this.sexo.compareTo("Feminino") == 0)
+				return classificaImcMeninas(imc);
 
-		percentil = 3;
-		percentil = 5;
-		percentil = 10;
-		percentil = 25;
-		percentil = 50;
-		percentil = 75;
-		percentil = 85;
-		percentil = 90;
-		percentil = 95;
-		percentil = 97;
+			else if (this.idade < 20 && this.sexo.compareTo("Masculino") == 0)
+				return classificaImcMeninos(imc);
 
-		return percentil;
+			else if (this.idade > 65 && this.sexo.compareTo("Feminino") == 0)
+				return classificaImcMulheresIdosas(imc);
 
-	}*/
+			else if (this.idade > 65 && this.sexo.compareTo("Masculino") == 0)
+				return classificaImcHomensIdosos(imc);
 
-	/*public double calculaPercentilMeninas(double imc) {
+			else if (this.gravida == true && this.sexo.compareTo("Feminino") == 0)
+				return classificaImcMulherGravida(imc);
 
-		double percentil;
-		
-		if (idade <= 2)
-		percentil = 3;
-		percentil = 5;
-		percentil = 10;
-		percentil = 25;
-		percentil = 50;
-		percentil = 75;
-		if (this.peso == 27.68 && this.idade == 20)
-		percentil = 85;
-		percentil = 90;
-		percentil = 95;
-		if (this.peso == 27.68 && this.idade == 20)
-		percentil = 97;
+			else if (this.gravida == true && this.sexo.compareTo("Masculino") == 0)
+				return "Não é possível ter gravidez no sexo masculino";
 
-		return percentil;
-
-	}*/
-
-	public String classificaImcCriancas(double percentil) {
-
-		String classificador = "IMC não classificado";
-		if (this.sexo.compareToIgnoreCase("Feminino") == 0 && this.idade <= 2) {
-
-			if (percentil < 5)
-				classificador = "Baixo peso";
-			else if (percentil <= 85)
-				classificador = "Peso normal";
-			else if (percentil <= 95)
-				classificador = "Sobrepeso";
-			else 
-				classificador = "Obesidade";
 		}
 
-		return classificador;
+		else
+			return "Valores inválidos quanto a idade inseridos";
+
+		if (this.sexo.compareToIgnoreCase("Masculino") == 0 || this.sexo.compareToIgnoreCase("Feminino") == 0) {
+
+			String classificador = "IMC não classificado";
+
+			if (this.idade >= 20 && this.idade <= 65) {
+
+				if (imc < 16)
+					classificador = "Baixo peso muito grave";
+				else if (imc <= 16.99)
+					classificador = "Baixo peso grave";
+				else if (imc <= 18.49)
+					classificador = "Baixo peso";
+				else if (imc <= 24.99)
+					classificador = "Peso normal";
+				else if (imc <= 29.99)
+					classificador = "Sobrepeso";
+				else if (imc <= 34.99)
+					classificador = "Obesidade grau I";
+				else if (imc <= 39.99)
+					classificador = "Obesidade grau II";
+				else
+					classificador = "Obesidade grau III (Obesidade mórbida)";
+			}
+
+			return classificador;
+		}
+		
+		else
+			return "Valores inválidos quanto ao sexo inseridos";
+
+	}
+
+	public String classificaImcMeninos(double imc) {
+
+		String classificador = "IMC não classificado";
+		if (this.sexo.compareTo("Masculino") == 0) {
+
+			if (this.idade <= 2) {
+
+				if (imc < 15)
+					classificador = "Baixo peso";
+
+				else if (imc <= 18)
+					classificador = "Peso normal";
+
+				else if (imc <= 21)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 4) {
+
+				if (imc < 14)
+					classificador = "Baixo peso";
+
+				else if (imc <= 17)
+					classificador = "Peso normal";
+
+				else if (imc <= 18)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 6) {
+
+				if (imc < 14)
+					classificador = "Baixo peso";
+
+				else if (imc <= 17)
+					classificador = "Peso normal";
+
+				else if (imc <= 18.3)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 8) {
+
+				if (imc < 14)
+					classificador = "Baixo peso";
+
+				else if (imc <= 18)
+					classificador = "Peso normal";
+
+				else if (imc <= 20)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 10) {
+
+				if (imc < 14.5)
+					classificador = "Baixo peso";
+
+				else if (imc <= 19)
+					classificador = "Peso normal";
+
+				else if (imc <= 22)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 12) {
+
+				if (imc < 15.2)
+					classificador = "Baixo peso";
+
+				else if (imc <= 21)
+					classificador = "Peso normal";
+
+				else if (imc <= 23)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 14) {
+
+				if (imc < 16.3)
+					classificador = "Baixo peso";
+
+				else if (imc <= 22.5)
+					classificador = "Peso normal";
+
+				else if (imc <= 26)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 16) {
+
+				if (imc < 16.8)
+					classificador = "Baixo peso";
+
+				else if (imc <= 24)
+					classificador = "Peso normal";
+
+				else if (imc <= 26.5)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 18) {
+
+				if (imc < 18.9)
+					classificador = "Baixo peso";
+
+				else if (imc <= 25.7)
+					classificador = "Peso normal";
+
+				else if (imc <= 27.9)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			else {
+
+				if (imc < 18.9)
+					classificador = "Baixo peso";
+
+				else if (imc <= 25.7)
+					classificador = "Peso normal";
+
+				else if (imc <= 27.9)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			return classificador;
+
+		}
+
+		else
+			return classificaImcMeninas(imc);
+
+	}
+
+	public String classificaImcMeninas(double imc) {
+
+		String classificador = "IMC não classificado";
+		if (this.sexo.compareTo("Feminino") == 0) {
+
+			if (this.idade <= 2) {
+
+				if (imc < 15)
+					classificador = "Baixo peso";
+
+				else if (imc <= 18)
+					classificador = "Peso normal";
+
+				else if (imc <= 20)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 4) {
+
+				if (imc < 14)
+					classificador = "Baixo peso";
+
+				else if (imc <= 17)
+					classificador = "Peso normal";
+
+				else if (imc <= 18)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 6) {
+
+				if (imc < 14)
+					classificador = "Baixo peso";
+
+				else if (imc <= 17)
+					classificador = "Peso normal";
+
+				else if (imc <= 19)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 8) {
+
+				if (imc < 14)
+					classificador = "Baixo peso";
+
+				else if (imc <= 18)
+					classificador = "Peso normal";
+
+				else if (imc <= 20.7)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 10) {
+
+				if (imc < 14.5)
+					classificador = "Baixo peso";
+
+				else if (imc <= 20)
+					classificador = "Peso normal";
+
+				else if (imc <= 23)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 12) {
+
+				if (imc < 15.5)
+					classificador = "Baixo peso";
+
+				else if (imc <= 21.8)
+					classificador = "Peso normal";
+
+				else if (imc <= 25)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 14) {
+
+				if (imc < 16.3)
+					classificador = "Baixo peso";
+
+				else if (imc <= 23.2)
+					classificador = "Peso normal";
+
+				else if (imc <= 27)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 16) {
+
+				if (imc < 17.2)
+					classificador = "Baixo peso";
+
+				else if (imc <= 24.7)
+					classificador = "Peso normal";
+
+				else if (imc <= 29)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			if (this.idade <= 18) {
+
+				if (imc < 18.2)
+					classificador = "Baixo peso";
+
+				else if (imc <= 25.7)
+					classificador = "Peso normal";
+
+				else if (imc <= 30.2)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			else {
+
+				if (imc < 18.5)
+					classificador = "Baixo peso";
+
+				else if (imc <= 26.5)
+					classificador = "Peso normal";
+
+				else if (imc <= 32.7)
+					classificador = "Sobrepeso";
+
+				else
+					classificador = "Obesidade";
+
+			}
+
+			return classificador;
+		}
+
+		return classificaImcMeninos(imc);
+
 	}
 
 	public String classificaImcHomensIdosos(double imc) {
 
 		String classificador = "IMC não classificado";
-		if (this.sexo.compareToIgnoreCase("Masculino") == 0 && this.idade > 65) {
+		if (this.sexo.compareTo("Masculino") == 0) {
 
-			if (imc < 21.9)
-				classificador = "Baixo peso";
-			else if (imc <= 27)
-				classificador = "Peso normal";
-			else if (imc <= 30)
-				classificador = "Sobrepeso";
-			else if (imc <= 35)
-				classificador = "Obesidade grau I";
-			else if (imc <= 39.9)
-				classificador = "Obesidade grau II";
+			if (this.idade > 65) {
+
+				if (imc < 21.9)
+					classificador = "Baixo peso";
+				else if (imc <= 27)
+					classificador = "Peso normal";
+				else if (imc <= 30)
+					classificador = "Sobrepeso";
+				else if (imc <= 35)
+					classificador = "Obesidade grau I";
+				else if (imc <= 39.9)
+					classificador = "Obesidade grau II";
+				else
+					classificador = "Obesidade grau III (Obesidade mórbida)";
+
+			}
+
+			else if (this.idade <= 20)
+				return classificaImcMeninos(imc);
 			else
-				classificador = "Obesidade grau III (Obesidade mórbida)";
+				return classificaImcGeral(imc);
+
 		}
 
 		return classificador;
+
 	}
 
 	public String classificaImcMulheresIdosas(double imc) {
 
 		String classificador = "IMC não classificado";
-		if (this.sexo.compareToIgnoreCase("Feminino") == 0 && this.idade > 65) {
+		if (this.sexo.compareTo("Feminino") == 0) {
 
-			if (imc < 21.9)
-				classificador = "Baixo peso";
-			else if (imc <= 27)
-				classificador = "Peso normal";
-			else if (imc <= 32)
-				classificador = "Sobrepeso";
-			else if (imc <= 37)
-				classificador = "Obesidade grau I";
-			else if (imc <= 41.9)
-				classificador = "Obesidade grau II";
+			if (this.idade > 65) {
+
+				if (imc < 21.9)
+					classificador = "Baixo peso";
+				else if (imc <= 27)
+					classificador = "Peso normal";
+				else if (imc <= 32)
+					classificador = "Sobrepeso";
+				else if (imc <= 37)
+					classificador = "Obesidade grau I";
+				else if (imc <= 41.9)
+					classificador = "Obesidade grau II";
+				else
+					classificador = "Obesidade grau III (Obesidade mórbida)";
+
+			}
+
+			else if (this.idade <= 20)
+				return classificaImcMeninas(imc);
 			else
-				classificador = "Obesidade grau III (Obesidade mórbida)";
+				return classificaImcGeral(imc);
 		}
 
 		return classificador;
@@ -127,45 +488,30 @@ public class Pessoa {
 	public String classificaImcMulherGravida(double imc) {
 
 		String classificador = "IMC não classificado";
-		if (this.sexo.compareToIgnoreCase("Feminino") == 0 && this.gravida == true) {
+		if (this.sexo.compareTo("Feminino") == 0) {
 
-			if (imc < 18.5)
-				classificador = "Baixo peso";
-			else if (imc <= 24.9)
-				classificador = "Peso normal";
-			else if (imc <= 29.9)
-				classificador = "Sobrepeso";
+			if (this.gravida == true) {
+
+				if (imc < 18.5)
+					classificador = "Baixo peso";
+				else if (imc <= 24.9)
+					classificador = "Peso normal";
+				else if (imc <= 29.9)
+					classificador = "Sobrepeso";
+				else
+					classificador = "Obesidade";
+			}
+
 			else
-				classificador = "Obesidade";
+				return classificaImcGeral(imc);
 		}
 
 		return classificador;
 	}
 
-	public String classificaImcGeral(double imc) {
-
-		String classificador = "IMC não classificado";
-		if (this.idade >= 20 && this.idade <= 65) {
-
-			if (imc < 16)
-				classificador = "Baixo peso muito grave";
-			else if (imc <= 16.99)
-				classificador = "Baixo peso grave";
-			else if (imc <= 18.49)
-				classificador = "Baixo peso";
-			else if (imc <= 24.99)
-				classificador = "Peso normal";
-			else if (imc <= 29.99)
-				classificador = "Sobrepeso";
-			else if (imc <= 34.99)
-				classificador = "Obesidade grau I";
-			else if (imc <= 39.99)
-				classificador = "Obesidade grau II";
-			else
-				classificador = "Obesidade grau III (Obesidade mórbida)";
-		}
-
-		return classificador;
+	public double calculaImc(double peso, double altura) {
+		double imc = this.peso / (Math.pow(this.altura, 2));
+		return imc;
 	}
 
 }
