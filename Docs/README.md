@@ -21,10 +21,10 @@ Fórmula: IMC = peso (em quilos) / altura² (em metros)
 
 ### Grávidas
 	
-* IMC menor que 18.5 kg/m2 (baixo peso) -> ganho de peso gestacional desejado entre 12.5 e 18.0 kg
-* IMC entre 18.5 e 24.9 kg/m2 (peso normal) -> ganho de peso gestacional desejado entre 11.5 e 16.0 kg
-* IMC entre 25.0 e 29.9 kg/m2 (sobrepeso) -> ganho de peso gestacional desejado entre 7.0 e 11.5 kg
-* IMC maior que 30.0 kg/m2 (obesidade) -> ganho de peso gestacional desejado entre 5.0 e 9.0 kg
+* IMC menor que 18.5 kg/m² (baixo peso) -> ganho de peso gestacional desejado entre 12.5 e 18.0 kg
+* IMC entre 18.5 e 24.9 kg/m² (peso normal) -> ganho de peso gestacional desejado entre 11.5 e 16.0 kg
+* IMC entre 25.0 e 29.9 kg/m² (sobrepeso) -> ganho de peso gestacional desejado entre 7.0 e 11.5 kg
+* IMC maior que 30.0 kg/m² (obesidade) -> ganho de peso gestacional desejado entre 5.0 e 9.0 kg
 
 ### Idosos
 	  
