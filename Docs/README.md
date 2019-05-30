@@ -1,10 +1,12 @@
 # Calculadora IMC
 
-	Projeto referente à disciplina de Teste e Qualidade de Software.
+Projeto referente à disciplina de Teste e Qualidade de Software.
  
-	Refer�ncia: [MD.SAUDE](https://www.mdsaude.com/obesidade/calcule-o-seu-peso-ideal-e-imc) 
+Referência: [MD.SAUDE](https://www.mdsaude.com/obesidade/calcule-o-seu-peso-ideal-e-imc) 
  
-	IMC = peso (em quilos) / altura² (em metros)
+Fórmula: IMC = peso (em quilos) / altura² (em metros)
+
+## Regras de negócio
  
 ### Adultos entre 20 e 65 anos
  
@@ -42,7 +44,7 @@
 * Sobrepeso -> entre 27,1 e 30 kg/m²
 * Obesidade grau I -> entre 30,1 e 35 kg/m²
 * Obesidade grau II -> entre 35,1 e 39,9 kg/m²
-* Obesidade grau III (obesidade m�rbida) -> maior que 40 kg/m²
+* Obesidade grau III (obesidade mórbida) -> maior que 40 kg/m²
 	 
 ### Crianças
 
