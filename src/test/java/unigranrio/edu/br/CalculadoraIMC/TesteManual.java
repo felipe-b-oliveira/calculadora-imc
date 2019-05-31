@@ -9,13 +9,13 @@ public class TesteManual {
 		DecimalFormat df = new DecimalFormat("###,##0.00");
 
 		// Idade | Sexo | Grávida? | Altura | Peso
-		Pessoa pes = new Pessoa(23, "Masculino", false, 1.8, 90);
+		Pessoa pes = new Pessoa(19, "Masculino", false, 1.6, 50);
 
 		// Peso | Altura
-		double imc = pes.calculaImc(75, 1.5);
+		double imc = pes.calculaImc(90, 1.8);
 
 		System.out.println("IMC: " + df.format(imc));
-		System.out.println("Classificação" + pes.classificaImcGeral(imc));
+		System.out.println("Classificação: " + pes.classificaImcGeral(imc));
 
 	}
 
