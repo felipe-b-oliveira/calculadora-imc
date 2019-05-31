@@ -20,7 +20,13 @@ public class Pessoa {
 
 		if (this.peso > 0 && this.altura > 0) {
 
-			if (this.idade < 20 && this.sexo.compareTo("Feminino") == 0)
+			if (idade < 0)
+				return "Valores inválidos quanto a idade inseridos";
+
+			else if (this.gravida == true && this.sexo.compareTo("Masculino") == 0)
+				return "Não é possível ter gravidez no sexo masculino";
+
+			else if (this.idade < 20 && this.sexo.compareTo("Feminino") == 0)
 				return classificaImcMeninas(imc);
 
 			else if (this.idade < 20 && this.sexo.compareTo("Masculino") == 0)
@@ -35,17 +41,12 @@ public class Pessoa {
 			else if (this.gravida == true && this.sexo.compareTo("Feminino") == 0)
 				return classificaImcMulherGravida(imc);
 
-			else if (this.gravida == true && this.sexo.compareTo("Masculino") == 0)
-				return "Não é possível ter gravidez no sexo masculino";
-
 		}
-
-		else
-			return "Valores inválidos quanto a idade inseridos";
 
 		if (this.sexo.compareToIgnoreCase("Masculino") == 0 || this.sexo.compareToIgnoreCase("Feminino") == 0) {
 
 			String classificador = "IMC não classificado";
+			System.out.println("Caiu no classificaImcGeral");
 
 			if (this.idade >= 20 && this.idade <= 65) {
 
@@ -69,7 +70,7 @@ public class Pessoa {
 
 			return classificador;
 		}
-		
+
 		else
 			return "Valores inválidos quanto ao sexo inseridos";
 
@@ -78,6 +79,8 @@ public class Pessoa {
 	public String classificaImcMeninos(double imc) {
 
 		String classificador = "IMC não classificado";
+		System.out.println("Caiu no classificaImcMeninos");
+
 		if (this.sexo.compareTo("Masculino") == 0) {
 
 			if (this.idade <= 2) {
@@ -252,6 +255,8 @@ public class Pessoa {
 	public String classificaImcMeninas(double imc) {
 
 		String classificador = "IMC não classificado";
+		System.out.println("Caiu no classificaImcMeninas");
+
 		if (this.sexo.compareTo("Feminino") == 0) {
 
 			if (this.idade <= 2) {
@@ -424,6 +429,8 @@ public class Pessoa {
 	public String classificaImcHomensIdosos(double imc) {
 
 		String classificador = "IMC não classificado";
+		System.out.println("Caiu no classificaImcHomensIdosos");
+
 		if (this.sexo.compareTo("Masculino") == 0) {
 
 			if (this.idade > 65) {
@@ -457,6 +464,8 @@ public class Pessoa {
 	public String classificaImcMulheresIdosas(double imc) {
 
 		String classificador = "IMC não classificado";
+		System.out.println("Caiu no classificaImcMulheresIdosas");
+
 		if (this.sexo.compareTo("Feminino") == 0) {
 
 			if (this.idade > 65) {
@@ -488,6 +497,8 @@ public class Pessoa {
 	public String classificaImcMulherGravida(double imc) {
 
 		String classificador = "IMC não classificado";
+		System.out.println("Caiu no classificaImcMulherGravida");
+
 		if (this.sexo.compareTo("Feminino") == 0) {
 
 			if (this.gravida == true) {
