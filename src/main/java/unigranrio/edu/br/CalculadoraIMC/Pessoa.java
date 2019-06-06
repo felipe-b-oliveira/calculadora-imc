@@ -256,6 +256,9 @@ public class Pessoa {
 
 		String classificador = "IMC não classificado";
 		System.out.println("Caiu no classificaImcMeninas");
+		
+		if (this.gravida == true)
+			return classificaImcMulherGravida(imc);
 
 		if (this.sexo.compareTo("Feminino") == 0) {
 
@@ -466,6 +469,9 @@ public class Pessoa {
 		String classificador = "IMC não classificado";
 		System.out.println("Caiu no classificaImcMulheresIdosas");
 
+		if (this.gravida == true)
+			return classificaImcMulherGravida(imc);
+			
 		if (this.sexo.compareTo("Feminino") == 0) {
 
 			if (this.idade > 65) {
@@ -520,7 +526,7 @@ public class Pessoa {
 		return classificador;
 	}
 
-	public double calculaImc(double peso, double altura) {
+	public double calculaImc() {
 		double imc = this.peso / (Math.pow(this.altura, 2));
 		return imc;
 	}
